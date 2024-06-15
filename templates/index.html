@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict Salary Analysis</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2 class="mt-5">Predict Salary Analysis</h2>
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <label for="Age">Age</label>
+                <input type="number" class="form-control" id="Age" name="Age" required>
+            </div>
+            <div class="form-group">
+                <label for="Years of Experience">Years of Experience</label>
+                <input type="number" class="form-control" id="Years of Experience" name="Years of Experience" required>
+            </div>
+            <div class="form-group">
+                <label for="Gender">Gender</label>
+                <select class="form-control" id="Gender" name="Gender" required>
+                    {% for gender in genders %}
+                    <option value="{{ gender }}">{{ gender }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Education Level">Education Level</label>
+                <select class="form-control" id="Education Level" name="Education Level" required>
+                    {% for education_level in education_levels %}
+                    <option value="{{ education_level }}">{{ education_level }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Job Title">Job Title</label>
+                <select class="form-control" id="Job Title" name="Job Title" required>
+                    {% for job_title in job_titles %}
+                    <option value="{{ job_title }}">{{ job_title }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Predict</button>
+        </form>
+        {% if prediction_text %}
+        <h3 class="mt-4">{{ prediction_text }}</h3>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -18,7 +18,7 @@ def get_requirements(file_path: str) -> List[str]:
     return requirements
 
 setup(
-    name='Lesion_GAN',
+    name='ML_AWS_EC2',
     version='0.0.1',
     author='Hafeez',
     author_email='siddiqov@gmail.com',
